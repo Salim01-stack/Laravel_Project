@@ -25,25 +25,28 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-5 px-0">
-                <form action="{{ route('contact.submit') }}" method="POST">
-                    @csrf
-                    <div>
-                        <input type="text" name="name" placeholder="Name" required />
-                    </div>
-                    <div>
-                        <input type="email" name="email" placeholder="Email" required />
-                    </div>
-                    <div>
-                        <input type="text" name="phone" placeholder="Phone" required />
-                    </div>
-                    <div>
-                        <input type="text" name="message" class="message-box" placeholder="Message" required />
-                    </div>
-                    <div class="d-flex">
-                        <button type="submit">Submit Request</button>
-                    </div>
-                </form>
+            <form action="{{ route('contact.submit') }}" method="POST">
+    @csrf
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" required>
+    </div>
+    <div>
+        <label for="message">Message:</label>
+<textarea id="message" name="message" style="width: 100%; height: 150px;" required></textarea>
+
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
             </div>
         </div>
     </div>

@@ -42,8 +42,9 @@ Route::resource('/users', UserController::class);
 
 use App\Http\Controllers\ContactController;
 
-Route::get('/contact', [ContactController::class, 'show'])->name('contact.show'); 
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+
 
 
 // routes/web.php
@@ -64,9 +65,6 @@ Route::get('/faq', [FaqController::class, 'index1']);
 
 
 
-Route::get('language/{locale}', function ($locale) {
-    if (in_array($locale, ['english', 'bangla'])) {
-        session(['locale' => $locale]);
-    }
-    return redirect()->back();
-});
+
+
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Contact;  // Import the Contact model
 
 class ContactController extends Controller
 {
@@ -21,9 +22,15 @@ class ContactController extends Controller
             'message' => 'required|string|max:1000',
         ]);
 
-        // Handle the submission logic (e.g., send email, store in database)
+        // Store the data in the contact table
+        Contact::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'message' => $request->input('message'),
+        ]);
 
-        // Redirect or respond with a success message
+        // Redirect with a success message
         return redirect()->route('contact.show')->with('success', 'Your message has been sent successfully!');
     }
 }

@@ -29,23 +29,11 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-           
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-
-            // Add your custom middleware here
+            // Other middleware...
             \App\Http\Middleware\LocaleMiddleware::class,
         ],
-
-        'api' => [
-            'throttle:api',
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        ],
     ];
+    
 
     /**
      * The application's route middleware.
